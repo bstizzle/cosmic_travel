@@ -1,0 +1,15 @@
+<h1><%= @scientist.name %></h1>
+<h3><%= @scientist.field_of_study %></h3>
+<ul>
+  <li><%= link_to "Edit", edit_scientist_path(@scientist) %></li>
+  <li><%= link_to "Destroy", scientist_path(@scientist),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+<% @scientist.missions.each do |mission| %>
+    <ul>
+        <li><%= "Mission: #{mission.name}" %></li>
+        <li><%= "Planet: #{mission.planet.name}" %></li>
+    </ul>
+<% end %>
